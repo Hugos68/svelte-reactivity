@@ -5,7 +5,11 @@
 	"scripts": {
 		"dev": "tsc -w",
 		"build": "tsc",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"release": "pnpm run build && changeset publish"
+	},
+	"publishConfig": {
+		"access": "public"
 	},
 	"files": [
 		"dist"
