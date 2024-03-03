@@ -43,6 +43,10 @@ export function ref<T>(init?: MaybeRef<T>, start?: StartStopNotifier<T>): Ref<T>
 	};
 }
 
-export function unref<T>(value: MaybeRef<T>) {
-	return isRef(value) ? value.value : value;
+export function unref<T>(maybeRef: MaybeRef<T>) {
+	return isRef(maybeRef) ? maybeRef.value : maybeRef;
+}
+
+export function toRef<T>(maybeRef: MaybeRef<T>) {
+	return isRef(maybeRef) ? maybeRef : ref(maybeRef);
 }
