@@ -10,7 +10,7 @@ Svelte runes are low level primitives to create robust and reactive applications
 
 == API
 
-=== Ref
+=== ref
 
 `ref` is the direct replacement for `$state`, `ref` takes in any value like `$state` would but returns an object with a single `value` property, this ensures that the `value` is always inside a closure meaning the `ref` can be passed to functions, components, context etc without losing reactivity.
 
@@ -45,7 +45,7 @@ sleep(5000);
 console.log(count.value); // 5
 ```
 
-=== Computed
+=== computed
 
 `computed` is the direct replacement for `$derived/$derived.by`, `computed` takes in a function and returns a `ref` with the result of the function.
 
@@ -63,24 +63,7 @@ count.value = 1;
 console.log(double.value); // 2
 ```
 
-=== Watch
-
-`watch` is something that doesn't exist in Svelte, it's a way to watch a `ref` by explicitly passing the dependencies it should watch for changes.
-
-```javascript
-
-import { ref, watch } from 'svelte-reactivity';
-
-const count = ref(0);
-
-watch(count, (count, prevCount) => {
-    console.log(count, prevCount);
-});
-
-count.value = 1; // 1, 0
-```
-
-=== WatchEffect
+=== watch
 
 `watchEffect` is the direct replacement for `$effect`, `watchEffect` takes in a function and returns a cleanup function, it automatically tracks the dependencies of the function and re-runs the function when any of the dependencies change.
 
@@ -93,6 +76,18 @@ const count = ref(0);
 watchEffect(() => {
     console.log(count.value); // 0, 1
 });
+
+count.value = 1;
+```
+
+=== debug
+
+`debug` is a utility function that logs the value of a `ref` whenever it changes. It returns a `with` function that can be used to pass your own callback that gets called instead of the default `console.log`.
+
+```javascript
+const count = ref(0);
+
+debug(count); // init: 0, update: 1
 
 count.value = 1;
 ```
