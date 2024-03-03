@@ -4,10 +4,10 @@
 
 ### Patch Changes
 
-- 016efb5: Added entry point
+-   016efb5: Added entry point
 
 ## 0.0.2
 
 ### Patch Changes
 
-- 6ea2621: Released library
+-   6ea2621: Released library

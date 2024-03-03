@@ -1,7 +1,7 @@
 import type { ReadonlyRef } from './ref.svelte.js';
 
-export function computed<T>(fn: () => T): ReadonlyRef<T> {
-	const value = $derived.by(fn);
+export function computed<T>(callback: () => T): ReadonlyRef<T> {
+	const value = $derived.by(callback);
 	return {
 		get value() {
 			return value;

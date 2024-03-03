@@ -1,0 +1,85 @@
+= svelte-reactivity
+:toc:
+
+svelte-reactivity is a https://vuejs.org/api/reactivity-core.html[Vue-like] abstraction layer on top of https://svelte-5-preview.vercel.app/docs/runes[Svelte's runes].
+
+== Why?
+
+Svelte runes are low level primitives to create robust and reactive applications with Svelte. Because these are primitives for achieving reactivity you might have to write a bunch of boilerplate that only will hurt the DX. There are also inconsistencies with runes that this library aims to solve.
+
+
+== API
+
+=== Ref
+
+`ref` is the direct replacement for `$state`, `ref` takes in any value like `$state` would but returns an object with a single `value` property, this ensures that the `value` is always inside a closure meaning the `ref` can be passed to functions, components, context etc without losing reactivity.
+
+```javascript
+import { ref } from 'svelte-reactivity';
+
+const count = ref(0);
+
+console.log(count.value); // 0
+
+count.value = 1;
+
+console.log(count.value); // 1
+```
+
+`ref` also takes in an optional second argument, this is a `startStopNotifier`function that will be called when the `ref` is being read from atleast once, once the `ref` is no longer being read from it will call the returned function from the `startStopNotifier` function.
+
+```javascript
+import { ref } from 'svelte-reactivity';
+
+const count = ref(0, (count) => {
+    const interval = setInterval(() => {
+        count.value++;
+    }, 1000);
+    return () => clearInterval(interval);
+});
+
+console.log(count.value); // 0
+
+sleep(5000);
+
+console.log(count.value); // 5
+```
+
+=== Computed
+
+`computed` is the direct replacement for `$derived/$derived.by`, `computed` takes in a function and returns a `ref` with the result of the function.
+
+```javascript
+import { ref, computed } from 'svelte-reactivity';
+
+const count = ref(0);
+
+const double = computed(() => count.value * 2);
+
+console.log(double.value); // 0
+
+count.value = 1;
+
+console.log(double.value); // 2
+```
+
+=== Watch
+
+`watch` is something that doesn't exist in Svelte, it's a way to watch a `ref` by explicitly passing the dependencies it should watch for changes.
+
+```javascript
+
+import { ref, watch } from 'svelte-reactivity';
+
+const count = ref(0);
+
+watch(count, (count, prevCount) => {
+    console.log(count, prevCount);
+});
+
+count.value = 1; // 1, 0
+```
+
+=== WatchEffect
+
+`watchEffect` is the direct replacement for `$effect`, `watchEffect` takes in a function and returns a cleanup function, it automatically tracks the dependencies of the function and re-runs the function when any of the dependencies change.
