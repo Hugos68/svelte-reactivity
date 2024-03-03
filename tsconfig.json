@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+		"outDir": "dist",
+		"skipLibCheck": true,
+		"declaration": true,
+		"sourceMap": true,
+		"strict": true,
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext"
+	}
+}
