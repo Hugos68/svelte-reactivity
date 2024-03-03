@@ -1,3 +1,3 @@
-export * from './ref.svelte.js';
-export * from './computed.svelte.js';
-export * from './watch.svelte.js';
+export { ref, type Ref } from './ref.svelte.js';
+export { computed } from './computed.svelte.js';
+export { watch } from './watch.svelte.js';

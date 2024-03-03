@@ -26,7 +26,7 @@ count.value = 1;
 console.log(count.value); // 1
 ```
 
-`ref` also takes in an optional second argument, this is a `startStopNotifier`function that will be called when the `ref` is being read from atleast once, once the `ref` is no longer being read from it will call the returned function from the `startStopNotifier` function.
+`ref` also takes in an optional second argument, this is a `startStopNotifier` function that will be called when the `ref` is being read from atleast once, once the `ref` is no longer being read from it will call the returned function from the `startStopNotifier` function.
 
 ```javascript
 import { ref } from 'svelte-reactivity';
@@ -65,10 +65,9 @@ console.log(double.value); // 2
 
 === watch
 
-`watchEffect` is the direct replacement for `$effect`, `watchEffect` takes in a function and returns a cleanup function, it automatically tracks the dependencies of the function and re-runs the function when any of the dependencies change.
+`watch` is the direct replacement for `$effect`, `watch` takes in a function that can returnsa cleanup function, it automatically tracks the dependencies of the function and re-runs the function when any of the dependencies change.
 
 ```javascript
-
 import { ref, watchEffect } from 'svelte-reactivity';
 
 const count = ref(0);
