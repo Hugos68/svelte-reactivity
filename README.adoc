@@ -83,3 +83,16 @@ count.value = 1; // 1, 0
 === WatchEffect
 
 `watchEffect` is the direct replacement for `$effect`, `watchEffect` takes in a function and returns a cleanup function, it automatically tracks the dependencies of the function and re-runs the function when any of the dependencies change.
+
+```javascript
+
+import { ref, watchEffect } from 'svelte-reactivity';
+
+const count = ref(0);
+
+watchEffect(() => {
+    console.log(count.value); // 0, 1
+});
+
+count.value = 1;
+```
