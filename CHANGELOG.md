@@ -1,5 +1,11 @@
 # svelte-reactivity
 
+## 0.0.4
+
+### Patch Changes
+
+- ab3e6c6: Added types
+
 ## 0.0.3
 
 ### Patch Changes
