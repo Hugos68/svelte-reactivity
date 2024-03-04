@@ -68,11 +68,11 @@ console.log(double.value); // 2
 `watch` is the direct replacement for `$effect`, `watch` takes in a function that can returnsa cleanup function, it automatically tracks the dependencies of the function and re-runs the function when any of the dependencies change.
 
 ```javascript
-import { ref, watchEffect } from 'svelte-reactivity';
+import { ref, watch } from 'svelte-reactivity';
 
 const count = ref(0);
 
-watchEffect(() => {
+watch(() => {
     console.log(count.value); // 0, 1
 });
 
@@ -90,3 +90,17 @@ debug(count); // init: 0, update: 1
 
 count.value = 1;
 ```
+
+`debug` returns a `with` function to pass your own callback, you can use this to do something else instead of just logging the value.
+
+```javascript
+const count = ref(0);
+
+debug(count).with((value) => {
+    console.log('count:', value);
+}); // count: 0, count: 1
+
+count.value = 1;
+```
+
+`debug` only works during development, it is removed from the production build.
