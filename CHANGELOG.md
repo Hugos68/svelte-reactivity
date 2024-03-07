@@ -1,5 +1,11 @@
 # svelte-reactivity
 
+## 0.0.7
+
+### Patch Changes
+
+- 8d3d606: Improved docs
+
 ## 0.0.6
 
 ### Patch Changes
@@ -10,23 +16,23 @@
 
 ### Patch Changes
 
--   f5d37a2: Added docs
--   b7114cb: Improved docs, limited exports
+- f5d37a2: Added docs
+- b7114cb: Improved docs, limited exports
 
 ## 0.0.4
 
 ### Patch Changes
 
--   ab3e6c6: Added types
+- ab3e6c6: Added types
 
 ## 0.0.3
 
 ### Patch Changes
 
--   016efb5: Added entry point
+- 016efb5: Added entry point
 
 ## 0.0.2
 
 ### Patch Changes
 
--   6ea2621: Released library
+- 6ea2621: Released library
