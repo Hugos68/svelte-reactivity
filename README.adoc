@@ -7,7 +7,6 @@ svelte-reactivity is a https://vuejs.org/api/reactivity-core.html[Vue-like] abst
 
 Svelte runes are low level primitives to create robust and reactive applications with Svelte. Because these are primitives for achieving reactivity you might have to write a bunch of boilerplate that only will hurt the DX. There are also inconsistencies with runes that this library aims to solve.
 
-
 == API
 
 === ref
@@ -78,29 +77,3 @@ watch(() => {
 
 count.value = 1;
 ```
-
-=== debug
-
-`debug` is a utility function that logs the value of a `ref` whenever it changes. It returns a `with` function that can be used to pass your own callback that gets called instead of the default `console.log`.
-
-```javascript
-const count = ref(0);
-
-debug(count); // init: 0, update: 1
-
-count.value = 1;
-```
-
-`debug` returns a `with` function to pass your own callback, you can use this to do something else instead of just logging the value.
-
-```javascript
-const count = ref(0);
-
-debug(count).with((value) => {
-    console.log('count:', value);
-}); // count: 0, count: 1
-
-count.value = 1;
-```
-
-`debug` only works during development, it is removed from the production build.

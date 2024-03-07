@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- cc38295: Exposed more utility functions
+-   cc38295: Exposed more utility functions
 
 ## 0.0.5
 
