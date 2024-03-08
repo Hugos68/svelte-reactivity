@@ -1,5 +1,11 @@
 # svelte-reactivity
 
+## 0.0.8
+
+### Patch Changes
+
+- 5432fa3: Removed debug
+
 ## 0.0.7
 
 ### Patch Changes
@@ -10,7 +16,7 @@
 
 ### Patch Changes
 
--   cc38295: Exposed more utility functions
+- cc38295: Exposed more utility functions
 
 ## 0.0.5
 
