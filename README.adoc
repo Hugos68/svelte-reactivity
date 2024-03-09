@@ -48,8 +48,6 @@ console.log(count.value); // 5
 
 `readonly` is the same as `ref` but it does not allow the `value` to be mutated.
 
-```javascript
-
 === computed
 
 `computed` is the direct replacement for `$derived/$derived.by`, `computed` takes in a function and returns a `ref` with the result of the function.
