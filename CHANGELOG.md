@@ -1,5 +1,11 @@
 # svelte-reactivity
 
+## 0.0.10
+
+### Patch Changes
+
+- 656f678: Added startstopnotifier to the `readonly` function
+
 ## 0.0.9
 
 ### Patch Changes
