@@ -1,8 +1,18 @@
 import { tick } from 'svelte';
 
-export type Ref<T> = { value: T };
+declare const RefSymbol: unique symbol;
+
+export type Ref<T> = {
+	value: T;
+};
+
+export type MaybeRef<T> = T | Ref<T>;
 export type ReadonlyRef<T> = { readonly value: T };
 export type StartStopNotifier<T> = (ref: Ref<T>) => (() => void) | void;
+
+export function isRef(ref: any): ref is Ref<unknown> {
+	return !!ref && typeof ref === 'object' && Object.keys(ref).length === 1 && 'value' in ref;
+}
 
 export function ref<T>(init?: T, start?: StartStopNotifier<T>): Ref<T> {
 	let value = $state(init) as T;
