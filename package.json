@@ -1,7 +1,7 @@
 {
 	"name": "svelte-reactivity",
 	"author": "Hugo Korte",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"scripts": {
 		"dev": "tsc -w",
 		"build": "tsc",
