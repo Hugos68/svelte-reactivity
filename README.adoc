@@ -55,5 +55,5 @@ effect(() => {
   console.log(count.value); // 1, 2
 });
 
-count.value = 1;s
+count.value = 1;
 ```
