@@ -57,8 +57,3 @@ effect(() => {
 
 count.value = 1;s
 ```
-
-```bash
-pnpm add svelte-reactivity
-```
-
