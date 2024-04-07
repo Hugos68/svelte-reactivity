@@ -1,0 +1,22 @@
+{
+	"name": "svelte-reactivity",
+	"description": "An abstraction layer on top of Svelte's Runes API to simplify the DX.",
+	"version": "0.0.0",
+	"author": {
+		"name": "Hugo Korte",
+		"email": "hugokorteapple@gmail.com",
+		"url": "https://hugokorte.pages.dev/"
+	},
+	"scripts": {
+		"dev": "tsc -w",
+		"build": "tsc"
+	},
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"devDependencies": {
+		"svelte": "5.0.0-next.95",
+		"typescript": "^5.4.4"
+	},
+	"type": "module",
+	"license": "MIT"
+}

@@ -1,0 +1,60 @@
+= svelte-reactivity
+
+An abstraction layer on top of Svelte's Runes API to simplify the DX.
+
+:toc:
+
+== Installation
+
+== API
+
+=== `signal`
+
+The `signal` function creates a reactive value.
+
+```javascript
+import { signal } from 'svelte-reactivity';
+
+const count = signal(0);
+
+console.log(count.value); // 0
+```
+
+=== `computed`
+
+The `computed` function creates a reactive value that depends on other reactive values.
+
+```javascript
+import { computed } from 'svelte-reactivity';
+
+const count = signal(0);
+
+const doubled = computed(() => count.value * 2);
+
+console.log(doubled.value); // 0
+
+count.value = 1;
+
+console.log(doubled.value); // 2
+```
+
+=== `effect`
+
+The `effect` function runs a function when a reactive value changes.
+
+```javascript
+import { effect } from 'svelte-reactivity';
+
+const count = signal(0);
+
+effect(() => {
+  console.log(count.value); // 1, 2
+});
+
+count.value = 1;s
+```
+
+```bash
+pnpm add svelte-reactivity
+```
+
