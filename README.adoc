@@ -6,6 +6,10 @@ An abstraction layer on top of Svelte's Runes API to simplify the DX.
 
 == Installation
 
+```bash
+pnpm add svelte-reactivity
+```
+
 == API
 
 === `signal`
