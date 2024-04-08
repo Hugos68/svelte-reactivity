@@ -1,8 +1,8 @@
-declare const RefSymbol: unique symbol;
+declare const __brand: unique symbol;
 
 class Signal<T> {
 	public value = $state() as T;
-	private readonly [RefSymbol] = true;
+	private readonly [__brand] = true;
 
 	public constructor(init?: T) {
 		this.value = init as T;
