@@ -1,10 +1,10 @@
-declare const __brand: unique symbol;
+import { BaseSignal } from "./base-signal.js";
 
-class Signal<T> {
+class Signal<T> extends BaseSignal {
 	public value = $state() as T;
-	private readonly [__brand] = true;
 
 	public constructor(init?: T) {
+		super();
 		this.value = init as T;
 	}
 }

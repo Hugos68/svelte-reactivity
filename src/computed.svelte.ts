@@ -1,6 +1,6 @@
-import { Signal } from "./signal.svelte.js";
+import { BaseSignal } from "./base-signal.js";
 
-class Computed<T> extends Signal<T> {
+class Computed<T> extends BaseSignal {
 	public value = $derived.by(() => this.fn());
 	private fn: () => T = () => this.value;
 
