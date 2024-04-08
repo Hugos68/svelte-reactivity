@@ -29,7 +29,7 @@ console.log(count.value); // 0
 The `computed` function creates a reactive value that depends on other reactive values.
 
 ```javascript
-import { computed } from 'svelte-reactivity';
+import { signal, computed } from 'svelte-reactivity';
 
 const count = signal(0);
 
@@ -47,7 +47,7 @@ console.log(doubled.value); // 2
 The `effect` function runs a function when a reactive value changes.
 
 ```javascript
-import { effect } from 'svelte-reactivity';
+import { signal, effect } from 'svelte-reactivity';
 
 const count = signal(0);
 
