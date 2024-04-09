@@ -19,7 +19,7 @@
 		"build": "tsc",
 		"format": "biome format --write .",
 		"lint": "biome lint .",
-		"release": "pnpm run build && changeset publish`"
+		"release": "pnpm run build && changeset publish"
 	},
 	"publishConfig": {
 		"access": "public"
