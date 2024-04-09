@@ -8,13 +8,16 @@ class Effect {
 				$effect(fn);
 				break;
 			default:
-				throw new Error(`Invalid flush value: ${flush}. Expected 'pre' or 'post'.`);
+				throw new Error(
+					`Invalid flush value: ${flush}. Expected 'pre' or 'post'.`,
+				);
 		}
 	}
 }
 
 type Parameters = ConstructorParameters<typeof Effect>;
 
-const effect = (fn: Parameters[0], flush?: Parameters[1]) => new Effect(fn, flush);
+const effect = (fn: Parameters[0], flush?: Parameters[1]) =>
+	new Effect(fn, flush);
 
 export { effect, Effect };
